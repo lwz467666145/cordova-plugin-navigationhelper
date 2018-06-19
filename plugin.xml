@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.chinact.mobile.plugin.navigationhelper" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>NavigationHelper</name>
+	<js-module name="NavigationHelper" src="www/NavigationHelper.js">
+		<clobbers target="navigator.navigationHelper" />
+	</js-module>
+	<preference name="TENCENT_KEY" default=""/>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="NavigationHelper">
+				<param name="android-package" value="com.chinact.mobile.plugin.navigationhelper.NavigationHelper" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml" />
+		<config-file parent="/manifest/application" target="AndroidManifest.xml" >
+            <meta-data android:name="com.chinact.mobile.plugin.navigationhelper.TENCENT_KEY" android:value="$TENCENT_KEY"/>
+        </config-file>
+		<source-file src="src/android/NavigationHelper.java" target-dir="src/com/chinact/mobile/plugin/navigationhelper" />
+	</platform>
+	<platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="NavigationHelper">
+				<param name="ios-package" value="NavigationHelper" />
+			</feature>
+		</config-file>
+		<config-file parent="NavigationHelper" target="*-Info.plist">
+            <dict>
+                <key>TENCENT_KEY</key>
+                <string>$TENCENT_KEY</string>
+            </dict>
+        </config-file>
+		<config-file parent="LSApplicationQueriesSchemes" target="*-Info.plist">
+	        <array>
+	            <string>baidumap</string>
+	            <string>iosamap</string>
+	            <string>qqmap</string>
+	        </array>
+	    </config-file>
+		<source-file src="src/ios/NavigationHelper.h" />
+		<source-file src="src/ios/NavigationHelper.m" />
+	</platform>
+</plugin>

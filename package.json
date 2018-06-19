@@ -1,0 +1,19 @@
+{
+  "name": "com.chinact.mobile.plugin.navigationhelper",
+  "version": "1.0.0",
+  "description": "Check And Use Navigation Application",
+  "cordova": {
+    "id": "com.chinact.mobile.plugin.navigationhelper",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Dante Lee",
+  "license": "ISC"
+}
