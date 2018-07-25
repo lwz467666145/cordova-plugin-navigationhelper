@@ -9,7 +9,8 @@
 
 - (void)baiduCheck:(CDVInvokedUrlCommand *)command{
     Boolean flag = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]];
-    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:flag] callbackId:command.callbackId];
+    NSString *result = flag ? @"true" : @"false";
+    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:result] callbackId:command.callbackId];
 }
 
 - (void)baiduAddress:(CDVInvokedUrlCommand *)command{
@@ -39,7 +40,8 @@
 
 - (void)gaodeCheck:(CDVInvokedUrlCommand *)command{
     Boolean flag = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]];
-    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:flag] callbackId:command.callbackId];
+    NSString *result = flag ? @"true" : @"false";
+    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:result] callbackId:command.callbackId];
 }
 
 - (void)gaodeAddress:(CDVInvokedUrlCommand *)command{
@@ -70,7 +72,8 @@
 
 - (void)tencentCheck:(CDVInvokedUrlCommand *)command{
     Boolean flag = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"qqmap://"]];
-    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:flag] callbackId:command.callbackId];
+    NSString *result = flag ? @"true" : @"false";
+    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:result] callbackId:command.callbackId];
 }
 
 - (void)tencentAddress:(CDVInvokedUrlCommand *)command{
